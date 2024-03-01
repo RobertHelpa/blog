@@ -1,13 +1,20 @@
-import sqlfte3
-db_name = "blog_db"
+import sqlite3
+db_name = "blog.db"
 connection = None
-cursar = None
+cursor = None
 
 def open():
     global connection, cursor
     connection = sqlite3.connect(db_name)
-    cursar = connection-cursar
+    cursor = connection.cursor()
 
 def close():
-    cursor-close()
-    connection-close()
+    cursor.close()
+    connection.close()
+
+def getUser():
+    open()
+    cursor.execute('''SELECT * FROM user''')
+    user = cursor.fetchone()
+    close()
+    return user

@@ -6,6 +6,11 @@
         <title>Document</title>
     </head>
     <body>
-        зрозумілок
+        {% include "menu.html"%}
+        <main>
+            {%block content%}
+            {% endblock %}
+        </main>
+        {% include "footer.html" %}
     </body>
     </html>
